@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1a2a"/><stop offset="1" stop-color="#0e0e0f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <g fill="none" stroke="#9cc3ff" stroke-opacity=".35">
+    <rect x="120" y="120" width="1360" height="760" rx="8"/>
+    <line x1="120" y1="190" x2="1480" y2="190"/>
+    <rect x="180" y="260" width="560" height="320" rx="6"/>
+    <rect x="800" y="260" width="620" height="140" rx="6"/>
+    <rect x="800" y="440" width="620" height="140" rx="6"/>
+    <rect x="180" y="640" width="1240" height="180" rx="6"/>
+  </g>
+  <text x="180" y="168" font-family="monospace" font-size="28" fill="#9cc3ff" fill-opacity=".7">[CAPTURA DEL PROYECTO 2]</text>
+</svg>
