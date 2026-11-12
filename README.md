@@ -9,7 +9,7 @@ npm run build     # genera dist/
 npm run preview   # sirve dist/ para probarlo
 ```
 
-No sirve con Live Server ni abriendo `index.html` a mano: hay que usar Vite (`npm run dev`).
+Usar Vite (`npm run dev`).
 
 ## Tus textos
 
