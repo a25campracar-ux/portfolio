@@ -336,11 +336,7 @@ export function Corridor({ projects, active, reduced, startAt, onIndex, controlR
             }}
           >
             <div className="aspect-[16/10] overflow-hidden bg-black">
-              <Cover
-                project={p}
-                index={i}
-                className="transition-transform duration-500 ease-out group-hover:scale-[1.03] group-hover:[filter:url(#ripple)]"
-              />
+              <Cover project={p} index={i} />
             </div>
             <div className="flex items-baseline justify-between gap-4 px-[0.4em] pt-[0.9em] pb-[0.4em]">
               <div>
@@ -357,23 +353,6 @@ export function Corridor({ projects, active, reduced, startAt, onIndex, controlR
           </Link>
         ))}
       </div>
-
-      {/* Filtro de distorsión para el hover de las capturas */}
-      <svg aria-hidden className="absolute size-0">
-        <filter id="ripple">
-          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="3">
-            {!reduced && (
-              <animate
-                attributeName="baseFrequency"
-                dur="6s"
-                values="0.012 0.03;0.016 0.026;0.012 0.03"
-                repeatCount="indefinite"
-              />
-            )}
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" scale={reduced ? 0 : 14} />
-        </filter>
-      </svg>
 
       {/* Viñeta: oscurece los bordes para dar profundidad */}
       <div

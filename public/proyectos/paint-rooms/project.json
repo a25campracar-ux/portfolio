@@ -2,7 +2,13 @@
   "title": "Paint Rooms",
   "year": 2026,
   "description": "Pizarra colaborativa por salas: cada persona dibuja en su navegador y el resto lo ve aparecer en directo, con el cursor y el nombre de cada participante.",
-  "tags": ["Vue 3", "Vue Router", "Socket.IO", "Canvas"],
+  "tags": [
+    "Vue 3",
+    "Vue Router",
+    "Socket.IO",
+    "Canvas",
+    "Pico CSS"
+  ],
   "cover": "cover.png",
   "link": "http://a25campracar.daw.inspedralbes.cat/paint-rooms/",
   "repo": "https://github.com/a25campracar-ux/sockets-paintrooms",

@@ -2,7 +2,13 @@
   "title": "Cursores en vivo",
   "year": 2026,
   "description": "Una página donde ves moverse en tiempo real el ratón de todas las personas conectadas, cada una con su nombre y su color.",
-  "tags": ["Node.js", "Express", "Socket.IO", "Canvas"],
+  "tags": [
+    "Node.js",
+    "Express",
+    "Socket.IO",
+    "Canvas",
+    "Pico CSS"
+  ],
   "cover": "cover.png",
   "link": "http://a25campracar.daw.inspedralbes.cat:20602/",
   "repo": "https://github.com/a25campracar-ux/sockets-cursores",
