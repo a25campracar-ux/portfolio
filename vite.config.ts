@@ -38,6 +38,12 @@ function projectsManifest(): Plugin {
               repo: meta.repo ?? null,
               how: meta.how ?? [],
               basics: meta.basics ?? [],
+              // Solo para el Lab (cuaderno de laboratorio)
+              estado: meta.estado ?? null,
+              bitacora: meta.bitacora ?? [],
+              ia: meta.ia ?? null,
+              muestra: meta.muestra ? base + meta.muestra : null,
+              pie: meta.pie ?? null,
               floor: meta.floor === 'lab' ? 'lab' : 'projects',
               order: meta.order ?? 0,
             },

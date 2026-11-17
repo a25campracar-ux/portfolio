@@ -15,6 +15,15 @@ export interface Project {
   how: string[];
   /** «Bases del proyecto»: tecnologías y decisiones técnicas. */
   basics: string[];
+  /** Lab: estado del experimento («En producción», «A medias»…). */
+  estado: string | null;
+  /** Lab: entradas del cuaderno (Hipótesis, Experimento, Resultado…). */
+  bitacora: { etiqueta: string; texto: string }[];
+  /** Lab: aviso de que el código está hecho con IA (se muestra como sello). */
+  ia: string | null;
+  /** Lab: captura pequeña («muestra») y su pie. */
+  muestra: string | null;
+  pie: string | null;
   floor: 'projects' | 'lab';
   order: number;
 }

@@ -1,0 +1,28 @@
+{
+  "title": "NoVoy",
+  "year": 2026,
+  "floor": "lab",
+  "order": 1,
+  "description": "Un semáforo de faltas: te dice si hoy puedes faltar sin pasarte del límite de asistencia.",
+  "estado": "En producción",
+  "tags": ["PWA", "JavaScript", "OCR", "Cifrado"],
+  "link": "https://novoy.netlify.app/",
+  "repo": "https://github.com/a25campracar-ux/novoy",
+  "bitacora": [
+    {
+      "etiqueta": "Hipótesis",
+      "texto": "Moodle te dice cuántas faltas llevas, pero no lo que quieres saber a las siete y media de la mañana: si hoy puedes faltar sin perder la evaluación continua."
+    },
+    {
+      "etiqueta": "Experimento",
+      "texto": "Una web instalable en el móvil que, con tu horario, el calendario y las reglas de tu centro, calcula cuántas horas de margen te quedan en cada asignatura y lo resume en un semáforo: verde, amarillo o rojo."
+    },
+    {
+      "etiqueta": "Resultado",
+      "texto": "Funciona en producción: lee el horario de una foto con OCR en el propio móvil, va sin conexión y guarda las cuentas cifradas, sin pedir correo."
+    }
+  ],
+  "ia": "Todo el código de este experimento está escrito con IA. La idea es mía.",
+  "muestra": "muestra.jpg",
+  "pie": "Fig. 1 · Alta de cuenta, en el móvil"
+}
