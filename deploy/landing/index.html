@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Camilo Prado · Proyectos</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0e0e0f; color: #b9bec6; font: 16px/1.6 system-ui, sans-serif; }
+  main { width: min(36rem, 100% - 3rem); padding: 3rem 0; }
+  h1 { margin: 0; font-weight: 200; font-size: 2.4rem; color: #eef0f2; letter-spacing: -.02em; }
+  p { margin: .4rem 0 2rem; }
+  a { color: inherit; text-decoration: none; }
+  .portfolio { display: inline-block; margin-bottom: 2.5rem; padding: .8rem 1.4rem; border-radius: 999px; background: #ffb347; color: #1a1206; font: 500 .8rem ui-monospace, monospace; letter-spacing: .15em; text-transform: uppercase; }
+  ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #ffffff1a; }
+  li a { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #ffffff1a; }
+  li a:hover strong { color: #ffb347; }
+  strong { color: #eef0f2; font-weight: 400; }
+  small { font: .75rem ui-monospace, monospace; opacity: .6; align-self: center; text-align: right; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Camilo Prado</h1>
+  <p>Desarrollador web · DAW</p>
+  <a class="portfolio" href="http://portfolio.c.daw.inspedralbes.cat/">Ver el portfolio ↗</a>
+  <ul>
+    <li><a href="/time-attack/"><strong>Time Attack</strong><small>Vue · Pinia · Socket.IO</small></a></li>
+    <li><a href=":20600/" id="banderas"><strong>Quiz de banderas</strong><small>Node · Express · MySQL</small></a></li>
+    <li><a href="/cat-clicker/"><strong>Cat Clicker</strong><small>JS · MVC · Vue</small></a></li>
+  </ul>
+</main>
+<script>
+  // Mismo host, puerto 20600 (donde corre el backend del quiz)
+  document.getElementById('banderas').href = location.protocol + '//' + location.hostname + ':20600/';
+</script>
+</body>
+</html>

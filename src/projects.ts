@@ -9,6 +9,12 @@ export interface Project {
   cover: string | null;
   /** Dirección de la demo en vivo. */
   url: string;
+  /** Código en GitHub (null si el repo es privado). */
+  repo: string | null;
+  /** «Cómo funciona»: pasos de lo que ve y hace quien lo abre. */
+  how: string[];
+  /** «Bases del proyecto»: tecnologías y decisiones técnicas. */
+  basics: string[];
   floor: 'projects' | 'lab';
   order: number;
 }

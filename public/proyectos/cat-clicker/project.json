@@ -1,0 +1,25 @@
+{
+  "title": "Cat Clicker",
+  "year": 2026,
+  "description": "El mismo ejercicio resuelto cinco veces: un contador de clics por gato que evoluciona desde JavaScript básico hasta Vue.",
+  "tags": [
+    "JavaScript",
+    "MVC",
+    "Vue 3"
+  ],
+  "cover": "cover.png",
+  "link": "http://a25campracar.daw.inspedralbes.cat/cat-clicker/",
+  "repo": "https://github.com/a25campracar-ux/catClicker",
+  "how": [
+    "Eliges un gato de la lista y se muestra su foto.",
+    "Cada clic en la foto suma uno a su contador, que se guarda para cada gato.",
+    "En la versión 4 hay un modo administrador para cambiar el nombre, la imagen y los clics del gato.",
+    "La página de inicio enlaza las cinco versiones para comparar cómo cambia el código."
+  ],
+  "basics": [
+    "Versiones 1 y 2: HTML y JavaScript con el DOM a mano.",
+    "Versiones 3 y 4: el código separado en modelo, vista y controlador (MVC).",
+    "Versión Vue (CDN): el mismo MVC con reactividad de Vue 3."
+  ],
+  "order": 3
+}

@@ -1,9 +1,0 @@
-{
-  "title": "[Proyecto de ejemplo 1]",
-  "year": 2026,
-  "description": "[Qué es, qué problema resuelve y qué hiciste tú. Una o dos frases.]",
-  "tags": ["HTML", "CSS", "JavaScript"],
-  "cover": "cover.svg",
-  "entry": "index.html",
-  "order": 1
-}

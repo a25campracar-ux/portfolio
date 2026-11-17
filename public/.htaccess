@@ -1,0 +1,3 @@
+# Hestia (nginx + Apache): las rutas del portfolio (/about, /projects/...) las resuelve React,
+# así que cualquier ruta que no sea un archivo real devuelve index.html.
+FallbackResource /index.html

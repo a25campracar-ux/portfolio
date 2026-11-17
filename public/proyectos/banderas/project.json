@@ -1,0 +1,21 @@
+{
+  "title": "Quiz de banderas",
+  "year": 2026,
+  "description": "Quiz de 10 banderas al azar en el que la corrección se hace en el servidor, con una base de datos MySQL y un CRUD para gestionar las preguntas.",
+  "tags": ["Node.js", "Express", "MySQL", "Bulma"],
+  "cover": "cover.png",
+  "link": "http://a25campracar.daw.inspedralbes.cat:20600/",
+  "how": [
+    "Al abrir la página, el servidor escoge 10 banderas al azar de la base de datos.",
+    "En cada bandera eliges uno de los cuatro países; el marcador superior muestra cuántas llevas.",
+    "Al terminar, tus respuestas se envían al servidor, que las corrige y te devuelve la puntuación.",
+    "El navegador nunca recibe las soluciones: no se puede hacer trampa mirando el código."
+  ],
+  "basics": [
+    "Backend Node.js con Express y una API REST (GET, POST, PUT y DELETE).",
+    "MySQL con mysql2; las credenciales están fuera del código, en un .env que solo existe en el servidor.",
+    "Cada partida tiene un sessionId (uuid) y las respuestas correctas solo se guardan en el servidor.",
+    "Frontend en HTML, Bulma y JavaScript con fetch; incluye una página CRUD para mantener las preguntas."
+  ],
+  "order": 2
+}

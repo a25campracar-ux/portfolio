@@ -78,7 +78,41 @@ export function ProjectSheet({ project, index, reduced, onClose }: Props) {
           </ul>
         )}
 
-        <div className="mt-auto flex flex-col gap-3 pt-10 sm:flex-row">
+        {project.how.length > 0 && (
+          <section aria-labelledby="sheet-how" className="mt-10">
+            <h3 id="sheet-how" className="font-mono text-[11px] tracking-[0.3em] text-accent uppercase">
+              Cómo funciona
+            </h3>
+            <ol className="mt-4 space-y-3">
+              {project.how.map((paso, i) => (
+                <li key={i} className="flex gap-4 leading-relaxed">
+                  <span aria-hidden className="mt-[3px] font-mono text-xs text-metal/50">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span>{paso}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {project.basics.length > 0 && (
+          <section aria-labelledby="sheet-basics" className="mt-10">
+            <h3 id="sheet-basics" className="font-mono text-[11px] tracking-[0.3em] text-accent uppercase">
+              Bases del proyecto
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {project.basics.map((base, i) => (
+                <li key={i} className="flex gap-4 leading-relaxed">
+                  <span aria-hidden className="mt-[9px] h-px w-3 shrink-0 bg-accent/60" />
+                  <span>{base}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <div className="mt-auto flex flex-col gap-3 pt-10 sm:flex-row sm:flex-wrap">
           <a
             href={project.url}
             target="_blank"
@@ -87,6 +121,16 @@ export function ProjectSheet({ project, index, reduced, onClose }: Props) {
           >
             Abrir proyecto <span aria-hidden>↗</span>
           </a>
+          {project.repo && (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noopener"
+              className="flex h-12 items-center justify-center gap-2 rounded-full border border-white/15 px-6 font-mono text-xs tracking-[0.15em] uppercase transition-transform hover:text-[#eef0f2] active:scale-[0.98]"
+            >
+              Ver código <span aria-hidden>↗</span>
+            </a>
+          )}
           <button
             type="button"
             onClick={onClose}

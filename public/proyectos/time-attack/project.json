@@ -1,0 +1,23 @@
+{
+  "title": "Time Attack",
+  "year": 2026,
+  "description": "Juego de precisión mental: pulsa A, S, D y F en el segundo exacto sin ver ningún reloj. Los resultados se comparten en tiempo real entre todos los jugadores conectados.",
+  "tags": ["Vue 3", "Pinia", "Socket.IO", "Node.js", "Vite"],
+  "cover": "cover.png",
+  "link": "http://a25campracar.daw.inspedralbes.cat/time-attack/",
+  "repo": "https://github.com/a25campracar-ux/timeAttackGame",
+  "how": [
+    "Escribes tu nombre y entras al juego.",
+    "Pulsas «Començar»: tras una cuenta atrás de 3 segundos el tiempo corre, pero no se ve.",
+    "Pulsas cada tecla cuando crees que toca (A a los 2 s, S a los 4 s, D a los 5 s y F a los 7 s), con el ratón o con el teclado.",
+    "Al acabar ves el error de cada tecla y el total: cuanto menos error, mejor.",
+    "Tu resultado llega al servidor y aparece al instante en la clasificación global de todos los navegadores abiertos."
+  ],
+  "basics": [
+    "Vue 3 con Composition API y Vite; estilos con Pico CSS.",
+    "Una vista que controla el juego y componentes hijos que se comunican con props y emits (teclado y tabla de resultados).",
+    "Pinia guarda el nombre, el historial local y la clasificación; el marcador lee el store sin recibir props.",
+    "Socket.IO: el cliente emite «resultat» y escucha «classificacio»; el backend Node.js corre en el servidor con pm2."
+  ],
+  "order": 1
+}

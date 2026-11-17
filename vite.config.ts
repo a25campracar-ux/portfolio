@@ -32,7 +32,12 @@ function projectsManifest(): Plugin {
               description: meta.description ?? '',
               tags: meta.tags ?? [],
               cover: meta.cover ? base + meta.cover : null,
-              url: base + (meta.entry ?? 'index.html'),
+              // Si el proyecto vive en su propia URL ("link"), la ficha enlaza allí;
+              // si no, a la copia compilada dentro de esta carpeta ("entry").
+              url: meta.link ?? base + (meta.entry ?? 'index.html'),
+              repo: meta.repo ?? null,
+              how: meta.how ?? [],
+              basics: meta.basics ?? [],
               floor: meta.floor === 'lab' ? 'lab' : 'projects',
               order: meta.order ?? 0,
             },
