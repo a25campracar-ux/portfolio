@@ -23,16 +23,19 @@
 <main>
   <h1>Camilo Prado</h1>
   <p>Desarrollador web · DAW</p>
-  <a class="portfolio" href="http://portfolio.c.daw.inspedralbes.cat/">Ver el portfolio ↗</a>
+  <a class="portfolio" href="http://portfolio.camilo.daw.inspedralbes.cat/">Ver el portfolio ↗</a>
   <ul>
     <li><a href="/time-attack/"><strong>Time Attack</strong><small>Vue · Pinia · Socket.IO</small></a></li>
     <li><a href=":20600/" id="banderas"><strong>Quiz de banderas</strong><small>Node · Express · MySQL</small></a></li>
+    <li><a href="/paint-rooms/"><strong>Paint Rooms</strong><small>Vue · Socket.IO · salas</small></a></li>
+    <li><a href=":20602/" id="cursores"><strong>Cursores en vivo</strong><small>Node · Socket.IO</small></a></li>
     <li><a href="/cat-clicker/"><strong>Cat Clicker</strong><small>JS · MVC · Vue</small></a></li>
   </ul>
 </main>
 <script>
   // Mismo host, puerto 20600 (donde corre el backend del quiz)
   document.getElementById('banderas').href = location.protocol + '//' + location.hostname + ':20600/';
+  document.getElementById('cursores').href = location.protocol + '//' + location.hostname + ':20602/';
 </script>
 </body>
 </html>

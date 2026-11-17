@@ -1,0 +1,22 @@
+{
+  "title": "Paint Rooms",
+  "year": 2026,
+  "description": "Pizarra colaborativa por salas: cada persona dibuja en su navegador y el resto lo ve aparecer en directo, con el cursor y el nombre de cada participante.",
+  "tags": ["Vue 3", "Vue Router", "Socket.IO", "Canvas"],
+  "cover": "cover.png",
+  "link": "http://a25campracar.daw.inspedralbes.cat/paint-rooms/",
+  "repo": "https://github.com/a25campracar-ux/sockets-paintrooms",
+  "how": [
+    "Escribes tu nombre y el de una sala: si no existe, se crea; si existe, entras con quien ya esté dentro.",
+    "Al entrar recibes todo lo que ya se ha dibujado en esa sala.",
+    "Eliges color y grosor y dibujas; los trazos aparecen a la vez en los navegadores de la sala.",
+    "Ves el cursor de los demás con su nombre y su color, y cualquiera puede limpiar la pizarra."
+  ],
+  "basics": [
+    "Cliente Vue 3 + Vite con Vue Router: vista de lobby y vista de sala (/room/:nombre).",
+    "Dibujo sobre <canvas>: cada trazo se envía por partes (draw_begin, draw_move, draw_end).",
+    "Servidor Socket.IO con salas (socket.join): los eventos solo llegan a quien está en la misma sala.",
+    "El servidor valida los datos y guarda los trazos de cada sala para los que llegan tarde."
+  ],
+  "order": 3
+}

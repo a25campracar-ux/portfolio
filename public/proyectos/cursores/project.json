@@ -1,0 +1,22 @@
+{
+  "title": "Cursores en vivo",
+  "year": 2026,
+  "description": "Una página donde ves moverse en tiempo real el ratón de todas las personas conectadas, cada una con su nombre y su color.",
+  "tags": ["Node.js", "Express", "Socket.IO", "Canvas"],
+  "cover": "cover.png",
+  "link": "http://a25campracar.daw.inspedralbes.cat:20602/",
+  "repo": "https://github.com/a25campracar-ux/sockets-cursores",
+  "how": [
+    "Escribes tu nombre y entras.",
+    "El servidor te asigna un color al azar.",
+    "Al mover el ratón, tu posición se envía al servidor y se reparte a todos.",
+    "Cada navegador dibuja los cursores de todos; al cerrar la pestaña, tu cursor desaparece."
+  ],
+  "basics": [
+    "Servidor Node.js con Express (sirve la página) y Socket.IO (tiempo real) en el mismo puerto.",
+    "Estado compartido en el servidor: un objeto con nombre, color y posición de cada socket.",
+    "Eventos «entrar», «mover» y «usuarios»; al desconectarse se borra el usuario y se avisa al resto.",
+    "Cliente en JavaScript sin frameworks que dibuja sobre un <canvas>."
+  ],
+  "order": 4
+}

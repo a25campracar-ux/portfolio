@@ -23,10 +23,13 @@ El script se niega a desplegar si el repo tiene cambios sin commit o no está ig
 
 | Proyecto | Repo (rama) | En el servidor | URL |
 |---|---|---|---|
-| `portfolio` | portfolio (main) | compilado → `web/portfolio.c.daw…/public_html` | http://portfolio.c.daw.inspedralbes.cat/ |
+| `portfolio` | portfolio (main) | compilado → `web/portfolio.camilo.daw…/public_html` | http://portfolio.camilo.daw.inspedralbes.cat/ |
 | `time-attack` | timeAttackGame (prototip-3-socket) | compilado → `public_html/time-attack` | http://a25campracar.daw.inspedralbes.cat/time-attack/ |
 | `time-attack-api` | alvaroph/backend_TIME_ATTACK (main) | clon en `~/apps/backend_TIME_ATTACK`, pm2, puerto **20601** | http://daw.inspedralbes.cat:20601/health |
 | `banderas` | juegodBanderas (main, privado) | clon en `~/apps/juegodBanderas`, pm2, puerto **20600** | http://a25campracar.daw.inspedralbes.cat:20600/ |
+| `cursores` | sockets-cursores (main) | clon en `~/apps/sockets-cursores`, pm2, puerto **20602** (sirve su propio HTML) | http://a25campracar.daw.inspedralbes.cat:20602/ |
+| `paint-rooms` | sockets-paintrooms (main), carpeta `client/` | compilado → `public_html/paint-rooms` | http://a25campracar.daw.inspedralbes.cat/paint-rooms/ |
+| `paint-rooms-api` | sockets-paintrooms (main), carpeta `server/` | clon en `~/apps/sockets-paintrooms`, pm2, puerto **20603** | — |
 | `cat-clicker` | catClicker (main) | archivos del commit → `public_html/cat-clicker` | http://a25campracar.daw.inspedralbes.cat/cat-clicker/ |
 
 `public_html` = `web/a25campracar.daw.inspedralbes.cat/public_html`. Su `index.html` es [`landing/index.html`](landing/index.html) (se publica con `portfolio`).
@@ -36,14 +39,17 @@ servidor (~)
 ├── apps/                      ← privado: backends, nunca dentro de public_html
 │   ├── ecosystem.config.cjs   ← copia de deploy/ecosystem.config.cjs (pm2)
 │   ├── juegodBanderas/        ← git clone (deploy key de solo lectura) + backend/.env
-│   └── backend_TIME_ATTACK/   ← git clone
+│   ├── backend_TIME_ATTACK/   ← git clone
+│   ├── sockets-cursores/      ← git clone
+│   └── sockets-paintrooms/    ← git clone (se usa server/)
 ├── backups/                   ← copias antes de cambios grandes
 └── web/
     ├── a25campracar.daw.inspedralbes.cat/public_html/
     │   ├── index.html         ← lista de proyectos
     │   ├── time-attack/
+    │   ├── paint-rooms/
     │   └── cat-clicker/
-    └── portfolio.c.daw.inspedralbes.cat/public_html/
+    └── portfolio.camilo.daw.inspedralbes.cat/public_html/
 ```
 
 Cada web publicada tiene un `version.txt` con el commit exacto (por ejemplo, `/time-attack/version.txt`).
@@ -53,7 +59,8 @@ Cada web publicada tiene un `version.txt` con el commit exacto (por ejemplo, `/t
 - **Frontends compilados en local:** el servidor es compartido y va justo de RAM, así que no se compila allí.
 - **Backends con pm2:** siguen vivos al cerrar SSH, se reinician si fallan, y `@reboot pm2 resurrect` (crontab) los levanta si se reinicia el servidor. Logs: `ssh daw pm2 logs banderas`.
 - **Secretos solo en el servidor:** `~/apps/juegodBanderas/backend/.env` (permisos 600). No está en Git. Si cambias la contraseña de MySQL en Hestia, edita ese archivo y ejecuta `ssh daw pm2 restart banderas`.
-- **Puertos:** el 3000 lo usa otra persona; los míos son el 20600 y el 20601.
+- **Puertos:** el 3000 lo usa otra persona; los míos son 20600 (banderas), 20601 (Time Attack), 20602 (cursores) y 20603 (Paint Rooms).
+- **CRUD de banderas:** `/crud.html` pide contraseña (`CRUD_PASSWORD` en el `.env` del servidor).
 
 ## Añadir un proyecto nuevo
 

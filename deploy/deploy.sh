@@ -18,13 +18,13 @@ main() {
   SERVER=daw                     # alias de ~/.ssh/config (cal la VPN)
   CCC=~/ccc                      # on tinc els repos en local
   WEB=web/a25campracar.daw.inspedralbes.cat/public_html          # relatiu a la home del servidor
-  PORTFOLIO_WEB=web/portfolio.c.daw.inspedralbes.cat/public_html
+  PORTFOLIO_WEB=web/portfolio.camilo.daw.inspedralbes.cat/public_html
   DIR=$(cd "$(dirname "$0")" && pwd)
   TMP=$(mktemp -d)
   trap 'rm -rf "$TMP"' EXIT
 
   [ $# -gt 0 ] || { sed -n '2,15p' "$0"; exit 1; }
-  [ "$1" = tot ] && set -- banderas time-attack-api time-attack cat-clicker portfolio
+  [ "$1" = tot ] && set -- banderas time-attack-api time-attack cat-clicker cursores paint-rooms-api paint-rooms portfolio
 
   for p in "$@"; do
     echo "━━ $p"
@@ -34,6 +34,9 @@ main() {
       cat-clicker)     cat_clicker ;;
       banderas)        backend banderas juegodBanderas "$CCC/tr0daw" "cd backend && npm ci --omit=dev --no-audit --no-fund" ;;
       time-attack-api) backend time-attack-api backend_TIME_ATTACK "" "npm install --omit=dev --no-audit --no-fund" ;;
+      cursores)        backend cursores sockets-cursores "$CCC/servidor/sockets/cursores" "npm ci --omit=dev --no-audit --no-fund" ;;
+      paint-rooms-api) backend paint-rooms-api sockets-paintrooms "$CCC/servidor/sockets/paintRooms" "cd server && npm ci --omit=dev --no-audit --no-fund" ;;
+      paint-rooms)     paint_rooms ;;
       estat)           estat ;;
       *) echo "✗ Projecte desconegut: $p"; exit 1 ;;
     esac
@@ -83,6 +86,14 @@ time_attack() {
   publicar "$TMP/time-attack" "$WEB/time-attack"
 }
 
+paint_rooms() {
+  local r=$CCC/servidor/sockets/paintRooms
+  comprovar "$r"
+  vite_build "$r/client" /paint-rooms/ "$TMP/paint-rooms"   # usa client/.env.production
+  versio "$r" "$TMP/paint-rooms"
+  publicar "$TMP/paint-rooms" "$WEB/paint-rooms"
+}
+
 cat_clicker() {
   local r=$CCC/client/catClicker
   comprovar "$r"
@@ -110,10 +121,13 @@ estat() {
   ssh "$SERVER" 'pm2 ls; for d in ~/apps/*/; do [ -d "$d.git" ] && printf "  %-22s %s\n" "$(basename "$d")" "$(git -C "$d" log --oneline -1)"; done'
   for u in http://a25campracar.daw.inspedralbes.cat/time-attack/version.txt \
            http://a25campracar.daw.inspedralbes.cat/cat-clicker/version.txt \
-           http://portfolio.c.daw.inspedralbes.cat/version.txt; do
+           http://a25campracar.daw.inspedralbes.cat/paint-rooms/version.txt \
+           http://portfolio.camilo.daw.inspedralbes.cat/version.txt; do
     printf "  %-60s %s\n" "$u" "$(curl -s -m 5 "$u" | sed -n 3p || echo '?')"
   done
   printf "  banderas  :20600  %s\n" "$(curl -s -m 5 -o /dev/null -w '%{http_code}' http://daw.inspedralbes.cat:20600/)"
+  printf "  cursores  :20602  %s\n" "$(curl -s -m 5 -o /dev/null -w '%{http_code}' http://daw.inspedralbes.cat:20602/)"
+  printf "  paint-api :20603  %s\n" "$(curl -s -m 5 -o /dev/null -w '%{http_code}' 'http://daw.inspedralbes.cat:20603/socket.io/?EIO=4&transport=polling')"
   printf "  socket.io :20601  %s\n" "$(curl -s -m 5 -o /dev/null -w '%{http_code}' 'http://daw.inspedralbes.cat:20601/socket.io/?EIO=4&transport=polling')"
 }
 

@@ -19,5 +19,19 @@ module.exports = {
       env: { PORT: 20601 },
       max_memory_restart: '150M',
     },
+    {
+      name: 'cursores',
+      cwd: apps + '/sockets-cursores',
+      script: 'server.js',
+      env: { PORT: 20602 },
+      max_memory_restart: '150M',
+    },
+    {
+      name: 'paint-rooms-api',
+      cwd: apps + '/sockets-paintrooms/server',
+      script: 'server.js',
+      env: { PORT: 20603, CORS_ORIGIN: 'http://a25campracar.daw.inspedralbes.cat' },
+      max_memory_restart: '150M',
+    },
   ],
 }
